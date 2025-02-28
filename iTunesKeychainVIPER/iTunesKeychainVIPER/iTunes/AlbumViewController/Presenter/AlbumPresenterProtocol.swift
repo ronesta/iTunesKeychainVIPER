@@ -10,5 +10,6 @@ import UIKit.UIImage
 
 protocol AlbumPresenterProtocol: AnyObject {
     func viewDidLoad()
+    
     func didFetchAlbumDetails(album: Album, image: UIImage)
 }
