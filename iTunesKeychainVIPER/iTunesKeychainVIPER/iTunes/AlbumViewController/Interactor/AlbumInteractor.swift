@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 final class AlbumInteractor: AlbumInteractorProtocol {
     var presenter: AlbumPresenterProtocol?
@@ -15,12 +14,11 @@ final class AlbumInteractor: AlbumInteractorProtocol {
     func loadAlbumDetails(for album: Album) {
         networkManager?.loadImage(from: album.artworkUrl100) { [weak self] loadedImage in
 
-            guard let self,
-            let loadedImage else {
+            guard let loadedImage else {
                 return
             }
 
-            presenter?.didFetchAlbumDetails(album: album, image: loadedImage)
+            self?.presenter?.didFetchAlbumDetails(album: album, image: loadedImage)
         }
     }
 }
